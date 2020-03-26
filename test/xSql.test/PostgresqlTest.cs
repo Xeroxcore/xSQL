@@ -8,7 +8,7 @@ namespace xSql.test
         NpgSql sql = new NpgSql("Server=127.0.0.1;port=5432;Database=testdb;Uid=testuser;Pwd=helloworld;");
 
         [TestMethod]
-        public void InsertToDB()
+        public void InsertToDBPgSql()
         {
             var user = new User()
             {
@@ -16,7 +16,7 @@ namespace xSql.test
                 Password = "Nasar123"
             };
             sql.AlterDataQuery("insert into useraccount(username,password) values(@UserName, @Password)", user);
-            var emptyUser = new User()
+            var emptyUser = new
             {
                 UserName = "Nasar"
             };
@@ -26,7 +26,7 @@ namespace xSql.test
         }
 
         [TestMethod]
-        public void SelectFromDB()
+        public void SelectFromDBPgSql()
         {
             var user = new User();
             var data = sql.SelectQuery("select * from useraccount", user);
@@ -35,7 +35,7 @@ namespace xSql.test
         }
 
         [TestMethod]
-        public void Scalar()
+        public void ScalarPgSql()
         {
             var user = new User()
             {
@@ -47,7 +47,7 @@ namespace xSql.test
         }
 
         [TestMethod]
-        public void DeleteDataFromDB()
+        public void DeleteDataFromDBPgSql()
         {
             var user = new { UserName = "NasarScalar" };
             sql.AlterDataQuery("delete from useraccount where username = @UserName", user);
