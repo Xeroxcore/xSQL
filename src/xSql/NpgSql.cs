@@ -79,6 +79,15 @@ namespace xSql
             }
         }
 
+        public DataTable ReadDataFromDatabase(NpgsqlCommand sqlCommand)
+        {
+            var dataTable = new DataTable();
+            using (var reader = sqlCommand.ExecuteReader())
+            {
+                dataTable.Load(reader);
+            }
+            return dataTable;
+        }
 
         public DataTable SelectQuery<T>(string query, T data)
         {
@@ -88,8 +97,7 @@ namespace xSql
                 var command = CreateSqlCommand(query, data);
                 if (Connection.State != ConnectionState.Open)
                     Connection.Open();
-                var returningData = command.ExecuteReader(CommandBehavior.CloseConnection);
-                return null;
+                return ReadDataFromDatabase(command);
             }
             catch
             {
