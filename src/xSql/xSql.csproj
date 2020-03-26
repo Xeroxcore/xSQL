@@ -16,4 +16,9 @@
     <RepositoryUrl>https://github.com/Xeroxcore/xSQL</RepositoryUrl>
   </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MySql.Data" Version="8.0.19" />
+      <PackageReference Include="npgsql" Version="4.1.3.1" />
+    </ItemGroup>
+
 </Project>
