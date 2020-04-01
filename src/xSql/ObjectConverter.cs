@@ -22,7 +22,7 @@ namespace Components
         }
 
         private static bool ObjectAssignmentIsValid(string name, string columnName, object obj)
-            => name.ToLower() == columnName.ToLower() && obj != null;
+            => name.ToLower() == columnName.ToLower() && obj != null && obj != DBNull.Value;
 
         private static T IterateColumns<T>(T obj, DataColumn column, DataRow dr)
         {
