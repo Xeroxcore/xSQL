@@ -105,7 +105,6 @@ namespace xSql
             }
             finally
             {
-                if (Connection.State == ConnectionState.Open)
                     Connection.Close();
             }
         }
