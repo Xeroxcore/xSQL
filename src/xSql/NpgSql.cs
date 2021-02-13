@@ -39,9 +39,9 @@ namespace xSql
 
         public void AlterDataQuery<T>(string query, T data)
         {
-            ParametersIsValid(query, data);
             try
             {
+                ParametersIsValid(query, data);
                 var command = CreateSqlCommand(query, data);
                 if (Connection.State != ConnectionState.Open)
                     Connection.Open();
@@ -60,9 +60,9 @@ namespace xSql
 
         public object AlterDataQueryScalar<T>(string query, T data)
         {
-            ParametersIsValid(query, data);
             try
             {
+                ParametersIsValid(query, data);
                 var command = CreateSqlCommand(query, data);
                 if (Connection.State != ConnectionState.Open)
                     Connection.Open();
@@ -91,9 +91,9 @@ namespace xSql
 
         public DataTable SelectQuery<T>(string query, T data)
         {
-            ParametersIsValid(query, data);
             try
             {
+                ParametersIsValid(query, data);
                 var command = CreateSqlCommand(query, data);
                 if (Connection.State != ConnectionState.Open)
                     Connection.Open();
